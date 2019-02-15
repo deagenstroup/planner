@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-
-# Hello World!
-
 import wx, datetime, wx.lib.scrolledpanel, copy, time, os
 
 # Core classes
@@ -46,7 +42,7 @@ class Planner(wx.App):
             self.currentDate = datetime.datetime.strptime(inDate, "%m/%d/%Y").date()
             self.plannerFrame.updateDateText(self.currentDate.strftime("%m/%d/%Y"))
         else:
-            print "Error: Inputted object is not of correct type"
+            print("Error: Inputted object is not of correct type")
 
     def savePlanner(self):
         self.planCollection.savePlan()
@@ -157,7 +153,7 @@ class Plan:
     def writeToFile(self, file=None):
         if file is None:
             file = open(self.file, mode='w')
-        elif isinstance(file, basestring):
+        elif isinstance(file, type("aa")):
             self.file = file
             file = open(self.file, mode='w')
 
@@ -169,7 +165,7 @@ class Plan:
 
     # file: either a file object or a full path leading to a file which is to be loaded from
     def readFromFile(self, file):
-        if isinstance(file, basestring):
+        if isinstance(file, type("aa")):
             self.file = file
             file = open(self.file)
         str = file.read()
